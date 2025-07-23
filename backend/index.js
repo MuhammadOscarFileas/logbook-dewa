@@ -47,6 +47,7 @@ import uraianPIRoutes from "./routes/uraian_pi.js";
 import uraianGateRoutes from "./routes/uraian_gate.js";
 
 // Import relasi antar model jika ada (opsional)
+//banyak bngt
 import "./models/association.js";
 
 dotenv.config();
