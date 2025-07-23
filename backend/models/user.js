@@ -26,6 +26,10 @@ const UserModel = db.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    pos: {
+      type: DataTypes.ENUM("Screening", "Terminal Protection", "Non-Terminal Protection"),
+      allowNull: true,
+    },
     role: {
       type: DataTypes.ENUM("superadmin", "supervisor", "officer"),
       allowNull: false,

@@ -1,5 +1,46 @@
 import LogbookHarianMaster from "../models/logbook_harian_master.js";
 
+export const getAllLogbookByLokasi = async (req, res) => {
+  try {
+    const lokasi = req.params.lokasi;
+    const data = await LogbookHarianMaster.findAll({ where: { lokasi } });
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+// GET /api/logbook-harian-master/lokasi-list
+export const getAllLogbookLokasiList = async (req, res) => {
+  try {
+    const lokasiList = [
+      "Chief Terminal Protection",
+      "Ruang Tunggu",
+      "Walking Patrol",
+      "Mezzanine Domestik",
+      "Kedatangan Domestik",
+      "Akses Karyawan",
+      "Bulding Protection",
+      "CCTV",
+      "Main Gate",
+      "Chief Non-Terminal Protection",
+      "Patroli",
+      "Kargo",
+      "Papa November",
+      "Pos Congot",
+      "PSCP",
+      "Level 4",
+      "HBS",
+      "SCP LAGs",
+      "SSCP",
+      "OOG"
+    ];
+    res.json(lokasiList);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 export const createLogbookHarianMaster = async (req, res) => {
   try {
     const data = await LogbookHarianMaster.create(req.body);
