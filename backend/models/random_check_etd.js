@@ -31,7 +31,7 @@ const RandomCheckETD = db.define(
     },
     tanda_tangan: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     keterangan: {
       type: DataTypes.STRING,

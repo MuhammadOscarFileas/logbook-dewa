@@ -23,11 +23,15 @@ const LogbookHarianMaster = db.define(
     },
     ttd_yg_menyerahkan: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     ttd_yg_menerima: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true
+    },
+    ttd_supervisor: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
     status: {
       type: DataTypes.STRING,

@@ -6,11 +6,13 @@ import {
   updateUser, 
   deleteUser, 
   register, 
-  login 
+  login, 
+  countUserByRole
 } from "../controllers/user.js";
 
 const router = express.Router();
 
+router.get("/count-role", countUserByRole);
 router.post("/register", register);
 router.post("/login", login);
 router.post("/", createUser);

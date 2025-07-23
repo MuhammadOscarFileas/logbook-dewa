@@ -27,7 +27,7 @@ const PenyisiranRuangTungguMaster = db.define(
     },
     ttd_petugas_penyisiran: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     status: {
       type: DataTypes.STRING,

@@ -51,11 +51,11 @@ const LogbookSenjataApiDanPeluru = db.define(
     },
     ttd_petugas_airline: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     ttd_petugas_airport_security: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {

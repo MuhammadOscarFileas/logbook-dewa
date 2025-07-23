@@ -23,11 +23,11 @@ const LaporanTerminalKargoMaster = db.define(
     },
     ttd_menyerahkan: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     ttd_menerima: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     status: {
       type: DataTypes.STRING,

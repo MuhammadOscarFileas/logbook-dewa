@@ -23,11 +23,11 @@ const LogbookRaMaster = db.define(
     },
     ttd_menerima: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     ttd_menyerahkan: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     status: {
       type: DataTypes.STRING,

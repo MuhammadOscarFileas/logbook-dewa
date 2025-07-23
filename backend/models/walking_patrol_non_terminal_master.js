@@ -11,11 +11,11 @@ const WalkingPatrolNonTerminalMaster = db.define(
     },
     ttd_officer: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     ttd_supervisor: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     status: {
       type: DataTypes.STRING,

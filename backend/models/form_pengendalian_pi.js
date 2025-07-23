@@ -35,11 +35,11 @@ const FormPengendalianPI = db.define(
     },
     ttd_supervisor: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     ttd_pekerja: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {

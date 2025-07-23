@@ -1,5 +1,16 @@
 import User from "../models/user.js";
 
+export const countUserByRole = async (req, res) => {
+  try {
+    const superadmin = await User.count({ where: { role: "superadmin" } });
+    const supervisor = await User.count({ where: { role: "supervisor" } });
+    const officer = await User.count({ where: { role: "officer" } });
+    res.json({ superadmin, supervisor, officer });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 export const createUser = async (req, res) => {
   try {
     const data = await User.create(req.body);
