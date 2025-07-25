@@ -18,6 +18,10 @@ const UraianTugas = db.define(
         key: "id",
       },
     },
+    jam: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
     uraian_tugas: {
       type: DataTypes.STRING,
       allowNull: false,

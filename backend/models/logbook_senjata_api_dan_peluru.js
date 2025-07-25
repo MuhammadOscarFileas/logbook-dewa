@@ -49,8 +49,16 @@ const LogbookSenjataApiDanPeluru = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    nama_petugas_airline: {
+      type: DataTypes.STRING, 
+      allowNull: true,
+    },
     ttd_petugas_airline: {
       type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    nama_petugas_airport_security: {
+      type: DataTypes.STRING, 
       allowNull: true,
     },
     ttd_petugas_airport_security: {

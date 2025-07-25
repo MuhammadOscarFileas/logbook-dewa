@@ -17,12 +17,24 @@ const ChecklistHarianPatroliMaster = db.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    nama_pagi: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     ttd_pagi: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    nama_siang: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     ttd_siang: {
       type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    nama_malam: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     ttd_malam: {

@@ -31,7 +31,7 @@ const WalkingPatrolChecklist = db.define(
       allowNull: false,
     },
     clear: {
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
     catatan_penting: {

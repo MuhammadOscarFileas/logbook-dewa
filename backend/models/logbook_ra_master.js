@@ -21,6 +21,10 @@ const LogbookRaMaster = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    nama_menerima: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     ttd_menerima: {
       type: DataTypes.TEXT,
       allowNull: true,

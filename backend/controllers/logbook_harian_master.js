@@ -1,4 +1,21 @@
 import LogbookHarianMaster from "../models/logbook_harian_master.js";
+import UraianTugas from "../models/uraian_tugas.js";
+import UraianInventaris from "../models/uraian_inventaris.js";
+// GET /api/logbook-harian-master/detail/:id
+export const getLogbookHarianMasterByIdWithDetails = async (req, res) => {
+  try {
+    const data = await LogbookHarianMaster.findByPk(req.params.id, {
+      include: [
+        { model: UraianTugas, as: "uraian_tugas_list" },
+        { model: UraianInventaris, as: "uraian_inventaris_list" }
+      ]
+    });
+    if (!data) return res.status(404).json({ error: "Data not found" });
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
 
 export const getAllLogbookByLokasi = async (req, res) => {
   try {

@@ -33,8 +33,16 @@ const FormPengendalianPI = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    nama_supervisor: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     ttd_supervisor: {
       type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    nama_pekerja: {
+      type: DataTypes.STRING, 
       allowNull: true,
     },
     ttd_pekerja: {

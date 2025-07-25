@@ -9,8 +9,16 @@ const WalkingPatrolNonTerminalMaster = db.define(
       primaryKey: true,
       autoIncrement: true,
     },
+    nama_officer: {
+      type: DataTypes.STRING, 
+      allowNull: true,
+    },
     ttd_officer: {
       type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    nama_supervisor: {
+      type: DataTypes.STRING, 
       allowNull: true,
     },
     ttd_supervisor: {

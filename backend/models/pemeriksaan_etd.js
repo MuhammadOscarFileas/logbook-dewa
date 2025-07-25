@@ -33,6 +33,10 @@ const PemeriksaanETD = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    nama_petugas: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     tanda_tangan: {
       type: DataTypes.TEXT,
       allowNull: true,

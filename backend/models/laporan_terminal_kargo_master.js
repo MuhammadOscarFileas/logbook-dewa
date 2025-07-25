@@ -21,8 +21,16 @@ const LaporanTerminalKargoMaster = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    nama_menyerahkan: { 
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     ttd_menyerahkan: {
       type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    nama_menerima: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     ttd_menerima: {

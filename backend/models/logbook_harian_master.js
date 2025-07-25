@@ -38,13 +38,25 @@ const LogbookHarianMaster = db.define(
                           "OOG"),
       allowNull: false,
     },
+    nama_yg_menyerahkan: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },  
     ttd_yg_menyerahkan: {
       type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    nama_yg_menerima: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     ttd_yg_menerima: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    nama_supervisor: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     ttd_supervisor: {
       type: DataTypes.TEXT,

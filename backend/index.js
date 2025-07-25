@@ -56,7 +56,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware global
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://e77927efeed3.ngrok-free.app', 'https://w50hv1z0-3000.asse.devtunnels.ms','https://vfd44k84-3000.asse.devtunnels.ms'],
+  origin: ['http://localhost:3000', 'https://c6c0e507ae3f.ngrok-free.app', 'https://w50hv1z0-3000.asse.devtunnels.ms','https://vfd44k84-3000.asse.devtunnels.ms'],
   credentials: true
 }));
 
@@ -65,6 +65,7 @@ app.use(express.json());
 // Daftarkan semua route API yang SUDAH ADA
 app.use("/api/users", userRoutes);
 
+// Behaviour Master
 app.use("/api/behaviour-master", behaviourMasterRoutes);
 app.use("/api/behaviour-master/behaviour-uraian", behaviourUraianRoutes);
 
@@ -110,22 +111,28 @@ app.use("/api/random-check-etd", randomCheckEtdRoutes);
 
 app.use("/api/rekonsiliasi-bagasi", rekonsiliasiBagasiRoutes);
 
+// Rotasi Personel Master
 app.use("/api/rotasi-personel-master", rotasiPersonelMasterRoutes);
 app.use("/api/rotasi-personel-master/rotasi-personel-uraian", rotasiPersonelUraianRoutes);
 
+// Suspicious Master
 app.use("/api/suspicious-master", suspiciousMasterRoutes);
 app.use("/api/suspicious-master/suspicious-uraian", suspiciousUraianRoutes);
 
+// Logbook Harian Master
 app.use("/api/logbook-harian-master", logbookHarianMasterRoutes);
 app.use("/api/logbook-harian-master/uraian-inventaris", uraianInventarisRoutes);
 app.use("/api/logbook-harian-master/uraian-tugas", uraianTugasRoutes);
 
+// Walking Patrol
 app.use("/api/walking-patrol-master", walkingPatrolMasterRoutes);
 app.use("/api/walking-patrol-master/walking-patrol-checklist", walkingPatrolChecklistRoutes);
 
+// Walking Patrol Non Terminal
 app.use("/api/walking-patrol-non-terminal-master", walkingPatrolNonTerminalMasterRoutes);
 app.use("/api/walking-patrol-non-terminal-master/walking-patrol-non-terminal-uraian", walkingPatrolNonTerminalUraianRoutes);
 
+// Buku Pemeriksaan Manual
 app.use("/api/buku-pemeriksaan-manual", bukuPemeriksaanManualRoutes);
 
 

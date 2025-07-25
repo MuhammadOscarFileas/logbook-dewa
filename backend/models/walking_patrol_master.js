@@ -18,8 +18,16 @@ const WalkingPatrolMaster = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    nama_supervisor: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     ttd_supervisor: {
       type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    nama_officer: {
+      type : DataTypes.STRING,
       allowNull: true,
     },
     ttd_officer: {

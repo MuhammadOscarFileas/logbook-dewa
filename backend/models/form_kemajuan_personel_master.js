@@ -13,6 +13,9 @@ const FormKemajuanPersonelMaster = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    nama_supervisor: {
+      type: DataTypes.STRING, 
+    },
     ttd_supervisor: {
       type: DataTypes.TEXT,
       allowNull: true,

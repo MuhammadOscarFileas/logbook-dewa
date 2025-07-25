@@ -53,6 +53,10 @@ const PenitipanSenjataApiSelainPenumpang = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    nama_petugas: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     ttd: {
       type: DataTypes.TEXT,
       allowNull: true,

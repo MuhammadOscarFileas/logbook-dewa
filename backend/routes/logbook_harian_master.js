@@ -6,11 +6,14 @@ import {
   updateLogbookHarianMaster,
   deleteLogbookHarianMaster,
   getAllLogbookByLokasi,
-  getAllLogbookLokasiList
+  getAllLogbookLokasiList,
+  getLogbookHarianMasterByIdWithDetails
 } from "../controllers/logbook_harian_master.js";
+// Get logbook by id beserta uraian tugas & inventaris
 
 const router = express.Router();
 
+router.get("/detail/:id", getLogbookHarianMasterByIdWithDetails);
 // List all possible lokasi
 router.get("/lokasi-list", getAllLogbookLokasiList);
 // Get all logbook by lokasi (dynamic)

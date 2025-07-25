@@ -14,12 +14,24 @@ const SuspiciousMaster = db.define(
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
+    nama_petugas: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     ttd_petugas: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    nama_supervisor1: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     ttd_supervisor1: {
       type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    nama_supervisor2: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     ttd_supervisor2: {

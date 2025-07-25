@@ -30,12 +30,14 @@ const DataTrackingCCTV = db.define(
       allowNull: false,
     },
     file_foto: {
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,
       allowNull: true,
+      defaultValue: false,
     },
     file_video: {
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,
       allowNull: true,
+      defaultValue: false,
     },
     keterangan: {
       type: DataTypes.STRING,
