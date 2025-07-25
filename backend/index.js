@@ -45,6 +45,7 @@ import walkingPatrolNonTerminalUraianRoutes from "./routes/walking_patrol_non_te
 import bukuPemeriksaanManualRoutes from "./routes/buku_pemeriksaan_manual.js";
 import uraianPIRoutes from "./routes/uraian_pi.js";
 import uraianGateRoutes from "./routes/uraian_gate.js";
+import ttdsupervisorroute from "./routes/ttd_supervisor_checker.js";
 
 // Import relasi antar model jika ada (opsional)
 //banyak bngt
@@ -64,51 +65,68 @@ app.use(express.json());
 
 // Daftarkan semua route API yang SUDAH ADA
 app.use("/api/users", userRoutes);
+app.use("/api", ttdsupervisorroute);
 
 // Behaviour Master
 app.use("/api/behaviour-master", behaviourMasterRoutes);
 app.use("/api/behaviour-master/behaviour-uraian", behaviourUraianRoutes);
 
+// Buku Pengunjung CCTV
 app.use("/api/buku-pengunjung-cctv", bukuPengunjungCctvRoutes);
 
+// Checklist Harian Patroli
 app.use("/api/checklist-harian-patroli-master", checklistHarianPatroliMasterRoutes);
 app.use("/api/checklist-harian-patroli-master/checklist-harian-patroli-uraian", checklistHarianPatroliUraianRoutes);
 
+// Data Tracking CCTV
 app.use("/api/data-tracking-cctv", dataTrackingCctvRoutes);
 
+// form Kemajuan Personel
 app.use("/api/form-kemajuan-personel-master", formKemajuanPersonelMasterRoutes);
 app.use("/api/form-kemajuan-personel-master/form-kemajuan-personel-uraian", formKemajuanPersonelUraianRoutes);
 
+// form Pengendalian PI
 app.use("/api/form-pengendalian-pi", formPengendalianPiRoutes);
 app.use("/api/form-pengendalian-pi/uraian-pi", uraianPIRoutes);
 app.use("/api/form-pengendalian-pi/uraian-gate", uraianGateRoutes);
 
+// Laporan Patroli Random
 app.use("/api/laporan-patroli-random-master", laporanPatroliRandomMasterRoutes);
 app.use("/api/laporan-patroli-random-master/laporan-patroli-random-uraian", laporanPatroliRandomUraianRoutes);
 
+// Laporan Terminal Kargo
 app.use("/api/laporan-terminal-kargo-master", laporanTerminalKargoMasterRoutes);
 app.use("/api/laporan-terminal-kargo-master/laporan-terminal-kargo-uraian", laporanTerminalKargoUraianRoutes);
 
+// Logbook Senjata Api dan Peluru
 app.use("/api/logbook-senjata-api-dan-peluru", logbookSenjataApiDanPeluruRoutes);
 
+// Logbook RA
 app.use("/api/logbook-ra-master", logbookRaMasterRoutes);
 app.use("/api/logbook-ra-master/logbook-ra-uraian", logbookRaUraianRoutes);
 
+// Patrol Darat
 app.use("/api/patrol-darat-uraian", patrolDaratUraianRoutes);
 app.use("/api/patroli_darat-uraian/patroli-darat-master", patroliDaratMasterRoutes);
 
+// Patrol Udara
 app.use("/api/patroli-udara-master", patroliUdaraMasterRoutes);
 app.use("/api/patroli-udara-master/patrol-udara-uraian", patrolUdaraUraianRoutes);
 
+// Penggunaan Smart Door Boarding
 app.use("/api/penggunaan-smart-door-boarding", penggunaanSmartDoorBoardingRoutes);
 
+// Penyisiran Ruang Tunggu
 app.use("/api/penyisiran-ruang-tunggu-master", penyisiranRuangTungguMasterRoutes);
 app.use("/api/penyisiran-ruang-tunggu-master/checklist-penyisiran", checklistPenyisiranRoutes);
 
+// Penitipan Senjata Api Selain Penumpang
 app.use("/api/penitipan-senjata-api-selain-penumpang", penitipanSenjataApiSelainPenumpangRoutes);
 
+// Random Check ETD
 app.use("/api/random-check-etd", randomCheckEtdRoutes);
 
+// Rekonsiliasi Bagasi
 app.use("/api/rekonsiliasi-bagasi", rekonsiliasiBagasiRoutes);
 
 // Rotasi Personel Master
@@ -146,7 +164,7 @@ const startServer = async () => {
   try {
     await db.authenticate();
     console.log("✅ Database connected...");
-    await db.sync({ alter: true }); // aktifkan jika ingin sync otomatis
+    await db.sync({ alter: true });
     app.listen(PORT, "0.0.0.0", () => {
       console.log(`🚀 Server berjalan di http://localhost:${PORT}`);
     });
