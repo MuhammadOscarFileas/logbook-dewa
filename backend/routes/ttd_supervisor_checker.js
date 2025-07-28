@@ -6,4 +6,4 @@ const router = express.Router();
 // GET /api/ttd-supervisor-kosong/:nama
 router.get("/ttd-supervisor-kosong/:nama", getTtdSupervisorKosong);
 
-export default router;
+export default router

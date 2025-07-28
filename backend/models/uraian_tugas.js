@@ -18,7 +18,11 @@ const UraianTugas = db.define(
         key: "id",
       },
     },
-    jam: {
+    jam_mulai: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
+    jam_akhir: {
       type: DataTypes.TIME,
       allowNull: false,
     },

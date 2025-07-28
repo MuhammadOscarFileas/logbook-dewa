@@ -57,7 +57,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware global
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://c6c0e507ae3f.ngrok-free.app', 'https://w50hv1z0-3000.asse.devtunnels.ms','https://vfd44k84-3000.asse.devtunnels.ms'],
+  origin: ['http://localhost:3000', 'https://9438baabf9bf.ngrok-free.app', 'https://w50hv1z0-3000.asse.devtunnels.ms','https://vfd44k84-3000.asse.devtunnels.ms'],
   credentials: true
 }));
 
