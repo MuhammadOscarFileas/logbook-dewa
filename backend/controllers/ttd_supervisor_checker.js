@@ -48,3 +48,28 @@ export const getTtdSupervisorKosong = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+// GET /api/laporan-belum-ttd-supervisor/:nama
+export const getLaporanBelumTtdSupervisorByNama = async (req, res) => {
+  const nama = req.params.nama;
+  const result = {};
+  try {
+    for (const entry of models) {
+      // Only check for supervisor name in ttd_supervisor field(s)
+      const orConditions = entry.fields.map(field => ({
+        [field]: { [Op.or]: [null, ""] },
+        nama_supervisor: nama
+      }));
+      // If model only has ttd_supervisor, use AND, else use OR for multiple fields
+      const where = orConditions.length > 1 ? { [Op.or]: orConditions } : orConditions[0];
+      const data = await entry.model.findAll({ where });
+      result[entry.name] = {
+        total: data.length,
+        laporan: data
+      };
+    }
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

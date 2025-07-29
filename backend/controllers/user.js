@@ -41,8 +41,7 @@ export const getUserById = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   try {
-    const [updated] = await User.update(req.body, { where: { id: req.params.id } });
-    if (!updated) return res.status(404).json({ error: "Data not found" });
+    await User.update(req.body, { where: { user_id: req.params.id } });
     res.json({ message: "Data updated" });
   } catch (err) {
     res.status(400).json({ error: err.message });
@@ -51,7 +50,7 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
   try {
-    const deleted = await User.destroy({ where: { id: req.params.id } });
+    const deleted = await User.destroy({ where: { user_id: req.params.id } });
     if (!deleted) return res.status(404).json({ error: "Data not found" });
     res.json({ message: "Data deleted" });
   } catch (err) {
