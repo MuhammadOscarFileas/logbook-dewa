@@ -30,8 +30,7 @@ export const getUraianInventarisById = async (req, res) => {
 
 export const updateUraianInventaris = async (req, res) => {
   try {
-    const [updated] = await UraianInventaris.update(req.body, { where: { id: req.params.id } });
-    if (!updated) return res.status(404).json({ error: "Data not found" });
+    await UraianInventaris.update(req.body, { where: { id: req.params.id } });
     res.json({ msg: "Uraian Inventaris berhasil diupdate" });
   } catch (err) {
     res.status(400).json({ error: err.message });

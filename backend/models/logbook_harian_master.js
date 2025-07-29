@@ -63,7 +63,7 @@ const LogbookHarianMaster = db.define(
       allowNull: true,
     },
     status: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM("Draft", "Submitted", "Completed"),
       allowNull: false,
     },
   },

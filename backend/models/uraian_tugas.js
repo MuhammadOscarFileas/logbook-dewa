@@ -14,9 +14,10 @@ const UraianTugas = db.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: LogbookHarianMaster, // pakai objek model, bukan string
+        model: LogbookHarianMaster,
         key: "id",
       },
+      onDelete: "CASCADE"
     },
     jam_mulai: {
       type: DataTypes.TIME,

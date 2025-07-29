@@ -30,8 +30,7 @@ export const getUraianTugasById = async (req, res) => {
 
 export const updateUraianTugas = async (req, res) => {
   try {
-    const [updated] = await UraianTugas.update(req.body, { where: { id: req.params.id } });
-    if (!updated) return res.status(404).json({ error: "Data not found" });
+    await UraianTugas.update(req.body, { where: { id: req.params.id } });
     res.json({ msg: "Uraian Tugas berhasil diupdate" });
   } catch (err) {
     res.status(400).json({ error: err.message });

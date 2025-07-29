@@ -88,8 +88,7 @@ export const getLogbookHarianMasterById = async (req, res) => {
 
 export const updateLogbookHarianMaster = async (req, res) => {
   try {
-    const [updated] = await LogbookHarianMaster.update(req.body, { where: { id: req.params.id } });
-    if (!updated) return res.status(404).json({ error: "Data not found" });
+    await LogbookHarianMaster.update(req.body, { where: { id: req.params.id } });
     res.json({ message: "Data updated" });
   } catch (err) {
     res.status(400).json({ error: err.message });
