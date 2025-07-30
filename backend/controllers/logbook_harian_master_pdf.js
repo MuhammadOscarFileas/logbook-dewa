@@ -4,18 +4,32 @@ import UraianTugas from "../models/uraian_tugas.js";
 import UraianInventaris from "../models/uraian_inventaris.js";
 import { Op } from "sequelize";
 
+
 export const exportLogbookHarianMasterPDF = async (req, res) => {
-  const { start, end } = req.query;
+  const { start, end, id } = req.query;
   try {
-    const logbooks = await LogbookHarianMaster.findAll({
-      where: {
-        tanggal: { [Op.between]: [start, end] }
-      },
-      include: [
-        { model: UraianTugas, as: "uraian_tugas_list" },
-        { model: UraianInventaris, as: "uraian_inventaris_list" }
-      ]
-    });
+    let logbooks = [];
+    if (id) {
+      // Export single logbook by id
+      const logbook = await LogbookHarianMaster.findByPk(id, {
+        include: [
+          { model: UraianTugas, as: "uraian_tugas_list" },
+          { model: UraianInventaris, as: "uraian_inventaris_list" }
+        ]
+      });
+      if (logbook) logbooks = [logbook];
+    } else {
+      // Export by date range
+      logbooks = await LogbookHarianMaster.findAll({
+        where: {
+          tanggal: { [Op.between]: [start, end] }
+        },
+        include: [
+          { model: UraianTugas, as: "uraian_tugas_list" },
+          { model: UraianInventaris, as: "uraian_inventaris_list" }
+        ]
+      });
+    }
 
     const doc = new PDFDocument({ margin: 30, size: "A4" });
     let buffers = [];
