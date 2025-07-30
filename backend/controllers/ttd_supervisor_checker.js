@@ -73,3 +73,34 @@ export const getLaporanBelumTtdSupervisorByNama = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+// GET /api/logbook-harian-master/belum-ttd-supervisor/:nama
+export const getLogbookHarianMasterBelumTtdSupervisor = async (req, res) => {
+  const nama = req.params.nama;
+  try {
+    const data = await LogbookHarianMaster.findAll({
+      where: {
+        nama_supervisor: nama,
+        status: "Submitted"
+      }
+    });
+    res.json({ total: data.length, laporan: data });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+// GET /api/logbook-harian-master/sudah-ttd-supervisor/:nama
+export const getLogbookHarianMasterSudahTtdSupervisor = async (req, res) => {
+  const nama = req.params.nama;
+  try {
+    const data = await LogbookHarianMaster.findAll({
+      where: {
+        nama_supervisor: nama,
+        status: "Completed",
+      }
+    });
+    res.json({ total: data.length, laporan: data });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
