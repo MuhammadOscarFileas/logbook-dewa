@@ -104,3 +104,20 @@ export const getLogbookHarianMasterSudahTtdSupervisor = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+// GET /api/logbook-harian-master/count-belum-ttd-supervisor/:nama
+export const countLogbookHarianMasterBelumTtdSupervisor = async (req, res) => {
+  const nama = req.params.nama;
+  try {
+    const count = await LogbookHarianMaster.count({
+      where: {
+        nama_supervisor: nama,
+        status: "Submitted",
+        ttd_supervisor: { [Op.or]: [null, ""] }
+      }
+    });
+    res.json({ total: count });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
