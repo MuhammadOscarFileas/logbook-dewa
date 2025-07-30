@@ -7,12 +7,15 @@ import {
   deleteLogbookHarianMaster,
   getAllLogbookByLokasi,
   getAllLogbookLokasiList,
-  getLogbookHarianMasterByIdWithDetails
+  getLogbookHarianMasterByIdWithDetails,
+  getSubmittedAndCompletedLogbookHarianMaster
 } from "../controllers/logbook_harian_master.js";
+// Get all logbook with status Submitted or Completed
 // Get logbook by id beserta uraian tugas & inventaris
 
 const router = express.Router();
 
+router.get("/submitted-completed", getSubmittedAndCompletedLogbookHarianMaster);
 router.get("/detail/:id", getLogbookHarianMasterByIdWithDetails);
 // List all possible lokasi
 router.get("/lokasi-list", getAllLogbookLokasiList);

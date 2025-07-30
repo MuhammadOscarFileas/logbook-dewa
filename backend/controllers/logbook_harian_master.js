@@ -104,3 +104,17 @@ export const deleteLogbookHarianMaster = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 }; 
+
+// GET /api/logbook-harian-master/submitted-completed
+export const getSubmittedAndCompletedLogbookHarianMaster = async (req, res) => {
+  try {
+    const data = await LogbookHarianMaster.findAll({
+      where: {
+        status: ["Submitted", "Completed"]
+      }
+    });
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
