@@ -20,6 +20,7 @@ import laporanPatroliRandomUraianRoutes from "./routes/laporan_patroli_random_ur
 import laporanTerminalKargoMasterRoutes from "./routes/laporan_terminal_kargo_master.js";
 import laporanTerminalKargoUraianRoutes from "./routes/laporan_terminal_kargo_uraian.js";
 import logbookHarianMasterRoutes from "./routes/logbook_harian_master.js";
+import logbookHarianMasterPDFRoutes from "./routes/logbook_harian_master_pdf.js";
 import logbookRaMasterRoutes from "./routes/logbook_ra_master.js";
 import logbookRaUraianRoutes from "./routes/logbook_ra_uraian.js";
 import logbookSenjataApiDanPeluruRoutes from "./routes/logbook_senjata_api_dan_peluru.js";
@@ -56,12 +57,32 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware global
-app.use(cors({
-  origin: ['http://localhost:3000', 'https://9438baabf9bf.ngrok-free.app', 'https://w50hv1z0-3000.asse.devtunnels.ms','https://vfd44k84-3000.asse.devtunnels.ms'],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: ['http://localhost:3000', 'https://c3826a20e8ed.ngrok-free.app', 'https://w50hv1z0-3000.asse.devtunnels.ms'],
+//   credentials: true
+// }));
+
+const corsOptions = {
+  origin: [
+    "http://localhost:3000", // saat local dev
+    "https://c3826a20e8ed.ngrok-free.app", // contoh tunnel
+    "https://w50hv1z0-3000.asse.devtunnels.ms", // playit/devtunnel
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
+//app.options(/.*/, cors(corsOptions));
 
 app.use(express.json());
+
+app.use((req, res, next) => {
+  console.log(`[${req.method}] ${req.originalUrl}`);
+  next();
+});
+
 
 // Daftarkan semua route API yang SUDAH ADA
 app.use("/api/users", userRoutes);
@@ -139,6 +160,7 @@ app.use("/api/suspicious-master/suspicious-uraian", suspiciousUraianRoutes);
 
 // Logbook Harian Master
 app.use("/api/logbook-harian-master", logbookHarianMasterRoutes);
+app.use("/api/logbook-harian-master", logbookHarianMasterPDFRoutes);
 app.use("/api/logbook-harian-master/uraian-inventaris", uraianInventarisRoutes);
 app.use("/api/logbook-harian-master/uraian-tugas", uraianTugasRoutes);
 
