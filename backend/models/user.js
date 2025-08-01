@@ -30,6 +30,10 @@ const UserModel = db.define(
       type: DataTypes.ENUM("Screening", "Terminal Protection", "Non-Terminal Protection"),
       allowNull: true,
     },
+    shift: {
+      type: DataTypes.ENUM("Pagi", "Siang", "Malam"),
+      allowNull: false,
+    },
     role: {
       type: DataTypes.ENUM("superadmin", "supervisor", "officer"),
       allowNull: false,

@@ -28,7 +28,7 @@ const UraianTugas = db.define(
       allowNull: false,
     },
     uraian_tugas: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     keterangan: {

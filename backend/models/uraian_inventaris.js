@@ -27,6 +27,10 @@ const UraianInventaris = db.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    keterangan: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     timestamps: false,

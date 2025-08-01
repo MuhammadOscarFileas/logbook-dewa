@@ -65,8 +65,8 @@ const PORT = process.env.PORT || 5000;
 const corsOptions = {
   origin: [
     "http://localhost:3000", // saat local dev
-    "https://c3826a20e8ed.ngrok-free.app", // contoh tunnel
-    "https://w50hv1z0-3000.asse.devtunnels.ms", // playit/devtunnel
+    "https://c3826a20e8ed.ngrok-free.app", // ngrok tunnel
+    "https://w50hv1z0-3000.asse.devtunnels.ms", // 
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -160,7 +160,7 @@ app.use("/api/suspicious-master/suspicious-uraian", suspiciousUraianRoutes);
 
 // Logbook Harian Master
 app.use("/api/logbook-harian-master", logbookHarianMasterRoutes);
-app.use("/api/logbook-harian-master", logbookHarianMasterPDFRoutes);
+app.use("/api/logbook-harian-master-pdf", logbookHarianMasterPDFRoutes);
 app.use("/api/logbook-harian-master/uraian-inventaris", uraianInventarisRoutes);
 app.use("/api/logbook-harian-master/uraian-tugas", uraianTugasRoutes);
 

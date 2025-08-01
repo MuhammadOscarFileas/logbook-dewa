@@ -17,6 +17,10 @@ const LogbookHarianMaster = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    pos: {
+      type: DataTypes.ENUM("Screening", "Terminal Protection", "Non-Terminal Protection"),
+      allowNull: true,
+    },
     lokasi: {
       type: DataTypes.ENUM("Chief Terminal Protection", 
                           "Ruang Tunggu", 
